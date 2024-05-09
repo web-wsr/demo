@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 在控制台中创建的函数 getQueryParams 解析 url 的参数，把其预期结果打印出来
+        function getQueryParams() {
+            // 索引旧字符串
+            const index = url.indexOf('?');
+            // console.log(index);
+            // 截取为新字符串
+            const newStr = url.slice(index + 1, url.length);
+            // console.log(newStr);
+            // 创建一个新的对象用于存放
+            const params = {};
+            // 分割成数组arr
+            const arr = newStr.split('&');
+            // console.log(arr);
+            // forEach遍历数组arr 并用split分割 写箭头函数
+            arr.forEach(item => {
+                const itemArr = item.split('=');
+                // console.log(itemArr);
+                params[itemArr[0]] = itemArr[1];
+            })
+            return params;
+        }
+        // 箭头函数
+        // const getQueryParams = (url) => {
+        //     // 索引旧数组
+        //     const index = url.indexOf('?');
+        //     // console.log(index);
+        //     // 截取为新字符串
+        //     const newStr = url.slice(index + 1, url.length);
+        //     console.log(newStr);
+        //     // 创建一个新的对象用于存放
+        //     const params = {};
+        //     // 分割成数组arr
+        //     const arr = newStr.split('&');
+        //     console.log(arr);
+        //     // forEach遍历数组arr 并用split分割 写箭头函数
+        //     arr.forEach(item => {
+        //         const itemArr = item.split('=');
+        //         console.log(itemArr);
+        //         params[itemArr[0]] = itemArr[1];
+        //     })
+        //     return params;
+        // }
+        const url = "https://www.aitschool.com?hmsr=baidu&timestamp=1675748358355";
+        const result = getQueryParams(url);
+        console.log(result);
+
+        // 预期 result 结果为
+        // {
+        //   hmsr: "baidu",
+        //   timestamp: "1675748358355"
+        // }
+    </script>
+</body>
+
+</html>

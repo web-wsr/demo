@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function lotteryDraw(rangStart, rangEnd, num) {
+            // 先声明两个空数组
+            const arr = [];
+            const newArr = [];
+            // 用while 数组长度不到num 一直循环
+            while (newArr.length < num) {
+                // 随机数的范围公式
+                const randomNumber = Math.floor(Math.random() * (rangEnd - rangStart + 1)) + rangStart;
+                // 将取出来的随机数放在数组arr中
+                arr.push(randomNumber);
+                // 用map方法遍历数组arr 取出元素
+                arr.map(function (item) {
+                    // 再用新数组newArr indexof  达到不重复的目的
+                    if (newArr.indexOf(item) == -1) {
+                        newArr.push(item);
+                    }
+                })
+            }
+            return newArr;
+        }
+        const result = lotteryDraw(2, 20, 5);
+        console.log(result);
+        // 预期 result 结果为 [ 2、4、9、12、7 ] 2~20 的其中5个随机数
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建计算在 1 ～ 1000 中所有的奇数的和的函数
+        function odd() {
+            let sum = 0;
+            for (let i = 1; i <= arguments[0]; i++) {
+                if (i % 2 !== 0) {
+                    sum = sum + i;
+                }
+            }
+            return sum;
+        }
+        const odd1000 = odd(1000);
+        console.log(odd1000);
+    </script>
+</body>
+
+</html>

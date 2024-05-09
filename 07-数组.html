@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const Series = [
+            {
+                name: 'Web',
+                courses: [
+                    {
+                        name: 'HTML',
+                        lessons: [
+                            { name: 'HTML Lesson 1' },
+                            { name: 'HTML Lesson 2' }
+                        ]
+                    },
+                    {
+                        name: 'CSS',
+                        lessons: [
+                            { name: 'CSS Lesson 1' },
+                            { name: 'CSS Lesson 2' }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: 'PHP',
+                courses: [
+                    {
+                        name: 'Linux',
+                        lessons: [
+                            { name: 'Linux Lesson 1' }
+                        ]
+                    }
+                ]
+            }
+        ]
+        // function getLessonCount(datas) {
+        //     // 计算每个系列下有多少门课
+        // }
+
+        // 更换箭头函数
+        const getLessonCount = (datas) => {
+            // 计算每个系列下有多少门课
+            // foreach方法
+            // const result = [];
+            // datas.forEach(items => {
+            //     let count = 0;
+            //     items.courses.forEach(course => {
+            //         count += course.lessons.length;
+            //     });
+            //     result.push({ name: items.name, count });
+            // });
+            // return result;
+
+            // map和reduce方法 
+            //  map遍历并返回传输的数组  
+            return datas.map(items => {
+                // 遍历新数组的courses下的数组长度
+                const lessonCounts = items.courses.map(course => course.lessons.length);
+                // reduce求和 初始化值为0
+                const count = lessonCounts.reduce((pre, cur) => pre + cur, 0);
+                // 返回最终筛选的数组对象
+                return { name: items.name, count };
+            })
+        }
+        const result = getLessonCount(Series);
+        console.log(result);
+        // 期望结果
+        // [{ name: 'Web', count: 4}, { name: 'PHP', count: 1}]
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // String 字符串类型 
+        const firstName = 'ShuRui';
+        const lastName = 'Wang';
+        // const name = 'My name is: ' + firstName + lastName;
+        const name = `My name is: ${firstName}${lastName}`;
+        console.log(typeof name);
+        console.log(name);
+        // Number 数值类型
+        const year = 2024;
+        console.log(typeof year);
+        console.log(year);
+        // Boolean 布尔类型
+        const flag = true;
+        console.log(typeof flag);
+        console.log(flag);
+        // Object  对象类型
+        let obj1 = {};
+        obj1.age = 18;
+        console.log(typeof obj1);
+        console.log(obj1.age);
+        // Null 类型
+        let obj2 = {
+            name: '张三',
+            sex: null,
+        }
+        console.log(obj2.sex);
+        // Undefind 类型
+        let tmp;
+        console.log(typeof tmp);
+        console.log(tmp);
+        // Symbol 符号类型
+        const symbol1 = Symbol(42);
+        console.log(typeof symbol1);
+    </script>
+</body>
+
+</html>
